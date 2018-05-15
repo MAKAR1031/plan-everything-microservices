@@ -21,6 +21,7 @@
         <module>discovery-service</module>
         <module>authorization-service</module>
         <module>gateway-service</module>
+        <module>projects-service</module>
         <module>tasks-service</module>
         <module>criteria-service</module>
         <module>tags-service</module>
