@@ -1,0 +1,23 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: members-service
+  datasource:
+      url: jdbc:postgresql://localhost:5432/plan_everything_members
+      username: postgres
+      password: postgres
+security:
+  oauth2:
+    client:
+      clientId: members-service
+      clientSecret: members-service
+      accessTokenUri: http://localhost:5000/oauth/token
+      grant-type: client_credentials
+      scope: all
+    resource:
+      user-info-uri: http://localhost:5000/users/current
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5001/eureka/

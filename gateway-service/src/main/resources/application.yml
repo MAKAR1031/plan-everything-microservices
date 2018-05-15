@@ -23,5 +23,7 @@ zuul:
   routes:
     auth:
       url: http://localhost:5000
+    members:
+      url: http://localhost:8085
     events:
       url: http://localhost:8086
