@@ -23,6 +23,8 @@ zuul:
   routes:
     auth:
       url: http://localhost:5000
+    tasks:
+      url: http://localhost:8082
     criteria:
       url: http://localhost:8083
     tags:
