@@ -23,6 +23,8 @@ zuul:
   routes:
     auth:
       url: http://localhost:5000
+    tags:
+      url: http://localhost:8084
     members:
       url: http://localhost:8085
     events:

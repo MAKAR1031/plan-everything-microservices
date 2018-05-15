@@ -21,6 +21,7 @@
         <module>discovery-service</module>
         <module>authorization-service</module>
         <module>gateway-service</module>
+        <module>tags-service</module>
         <module>members-service</module>
         <module>events-service</module>
     </modules>
