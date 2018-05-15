@@ -21,5 +21,6 @@
         <module>discovery-service</module>
         <module>authorization-service</module>
         <module>gateway-service</module>
+        <module>events-service</module>
     </modules>
 </project>

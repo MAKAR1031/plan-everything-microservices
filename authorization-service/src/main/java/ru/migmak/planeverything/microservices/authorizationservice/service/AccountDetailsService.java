@@ -1,6 +1,6 @@
 package ru.migmak.planeverything.microservices.authorizationservice.service;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,10 +11,14 @@ import ru.migmak.planeverything.microservices.authorizationservice.domain.Accoun
 import ru.migmak.planeverything.microservices.authorizationservice.repository.AccountRepository;
 
 @Service
-@RequiredArgsConstructor
 public class AccountDetailsService implements UserDetailsService {
 
     private final AccountRepository repository;
+
+    @Autowired
+    public AccountDetailsService(AccountRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

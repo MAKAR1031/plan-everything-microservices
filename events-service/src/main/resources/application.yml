@@ -1,0 +1,23 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: events-service
+  datasource:
+      url: jdbc:postgresql://localhost:5432/plan_everything_events
+      username: postgres
+      password: postgres
+security:
+  oauth2:
+    client:
+      clientId: events-service
+      clientSecret: events-service
+      accessTokenUri: http://localhost:5000/oauth/token
+      grant-type: client_credentials
+      scope: all
+    resource:
+      user-info-uri: http://localhost:5000/users/current
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5001/eureka/

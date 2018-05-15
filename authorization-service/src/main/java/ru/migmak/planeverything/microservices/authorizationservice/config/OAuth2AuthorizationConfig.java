@@ -38,6 +38,11 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
                 .withClient("gateway-service")
                 .secret("$2a$10$BPtX1kX45DoXFBT4zqtgLuSM/hqEIIRDL4MmBAg9oBDj5or0m8fpO")
                 .authorizedGrantTypes("client_credentials", "refresh_token")
+                .scopes("all")
+            .and()
+                .withClient("events-service")
+                .secret("$2a$10$KetkDHgiW34UWuQ4pGosw.zu/qf/BauJYzxB55UZdWUaPZa7hiGaC")
+                .authorizedGrantTypes("client_credentials", "refresh_token")
                 .scopes("all");
         // @formatter:on
     }

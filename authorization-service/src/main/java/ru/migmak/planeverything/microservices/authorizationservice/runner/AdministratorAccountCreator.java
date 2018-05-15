@@ -1,6 +1,6 @@
 package ru.migmak.planeverything.microservices.authorizationservice.runner;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,7 +14,6 @@ import ru.migmak.planeverything.microservices.authorizationservice.repository.Ac
 import static ru.migmak.planeverything.microservices.authorizationservice.domain.enums.AccountRoleCode.ADMIN;
 
 @Component
-@RequiredArgsConstructor
 public class AdministratorAccountCreator implements CommandLineRunner {
 
     @Value("${security.admin.fullName}")
@@ -25,6 +24,17 @@ public class AdministratorAccountCreator implements CommandLineRunner {
     private final AccountRepository accountRepository;
     private final AccountRoleRepository roleRepository;
     private final PasswordEncoder encoder;
+
+    @Autowired
+    public AdministratorAccountCreator(
+            AccountRepository accountRepository,
+            AccountRoleRepository roleRepository,
+            PasswordEncoder encoder
+    ) {
+        this.accountRepository = accountRepository;
+        this.roleRepository = roleRepository;
+        this.encoder = encoder;
+    }
 
     @Override
     @Transactional
