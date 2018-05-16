@@ -2,27 +2,22 @@ spring:
   application:
     name: auth
   datasource:
-    url: jdbc:postgresql://localhost:5432/database_name
-    username: user
-    password: password
+    url: jdbc:postgresql://localhost:5432/plan_everything_accounts
+    username: postgres
+    password: postgres
   jpa:
     hibernate:
       ddl-auto: validate
     properties.hibernate.temp.use_jdbc_metadata_defaults: false
-    properties.hibernate.connection.autocommit: true
+    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL9Dialect
     show-sql: true
 server:
   port: 5000
-logging:
-  level:
-    org:
-      springframework:
-        security: DEBUG
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:5001/eureka/
 security:
   admin:
-    fullName: admin full name
-    email: admin email
+    fullName: Администратор Администраторов
+    email: admin@mail.ru
