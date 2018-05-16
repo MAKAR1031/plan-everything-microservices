@@ -9,17 +9,17 @@ import ru.migmak.planeverything.microservices.authorizationservice.service.Accou
 import java.security.Principal;
 
 @RestController
-@RequestMapping("/users")
-public class UsersController {
+@RequestMapping("/accounts")
+public class AccountsController {
 
     private final AccountsService service;
 
     @Autowired
-    public UsersController(AccountsService service) {
+    public AccountsController(AccountsService service) {
         this.service = service;
     }
 
-    @RequestMapping(value = "/current", method = RequestMethod.GET)
+    @RequestMapping(value = "/principal", method = RequestMethod.GET)
     public Principal getUser(Principal principal) {
         return principal;
     }
@@ -28,5 +28,17 @@ public class UsersController {
     @ResponseStatus(HttpStatus.CREATED)
     public void register(@RequestBody AccountRegistration registration) {
         service.register(registration.toAccount());
+    }
+
+    @RequestMapping(value = "/{id}/lock", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.OK)
+    public void lock(@PathVariable("id") Long id) {
+        service.setBlocked(id, true);
+    }
+
+    @RequestMapping(value = "/{id}/unlock", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.OK)
+    public void unlock(@PathVariable("id") Long id) {
+        service.setBlocked(id, false);
     }
 }
