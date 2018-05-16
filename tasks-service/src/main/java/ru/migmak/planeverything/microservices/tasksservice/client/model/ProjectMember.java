@@ -8,6 +8,8 @@ import lombok.Setter;
 public class ProjectMember {
     private Long id;
 
+    private Long accountId;
+
     private MemberRole role;
 
     public boolean hasPrivilege(String code) {

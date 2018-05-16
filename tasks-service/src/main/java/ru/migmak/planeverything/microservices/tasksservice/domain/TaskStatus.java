@@ -21,7 +21,6 @@ public class TaskStatus {
     private String name;
 
     @Column(nullable = false, unique = true, length = 20)
-    @JsonIgnore
     private String code;
 
     @JsonIgnore

@@ -35,11 +35,6 @@ public class MembersHandler {
         if (projectId == null) {
             return;
         }
-        Account account = accountsClient.findMe();
-        Optional<ProjectMember> current = memberRepository.findCurrent(projectId, account.getId());
-        if (current.isPresent()) {
-            throw new BadRequestException("User is already a member");
-        }
         if (member.getRole() == null) {
             MemberRole defaultRole = roleRepository.findByCode(MemberRoleCode.PROJECT_EXECUTOR.name())
                     .orElseThrow(() -> new ServiceException("Default member role not found"));

@@ -33,7 +33,7 @@ public class Task {
     private Long authorId;
 
     @Column(name = "member_assignee_id")
-    private Long assignee;
+    private Long assigneeId;
 
     @Column(name = "project_id", nullable = false)
     private Long projectId;
