@@ -21,16 +21,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        // @formatter:off
-        http
-            .authorizeRequests().anyRequest().authenticated()
-        .and()
-            .csrf().disable();
-        // @formatter:on
-    }
-
-    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
