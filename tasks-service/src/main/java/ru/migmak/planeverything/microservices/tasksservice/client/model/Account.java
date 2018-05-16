@@ -1,4 +1,4 @@
-package ru.migmak.planeverything.microservices.projectsservice.client.model;
+package ru.migmak.planeverything.microservices.tasksservice.client.model;
 
 import lombok.Getter;
 import lombok.Setter;

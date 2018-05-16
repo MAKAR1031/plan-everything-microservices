@@ -18,7 +18,6 @@ public class Privilege {
     @Column(nullable = false, unique = true, length = 80)
     private String name;
 
-    @JsonIgnore
     @Column(nullable = false, unique = true, length = 20)
     private String code;
 }

@@ -12,6 +12,22 @@ public interface MemberRoleRepository extends CrudRepository<MemberRole, Long> {
 
     @Override
     @RestResource(exported = false)
+    <S extends MemberRole> S save(S s);
+
+    @Override
+    @RestResource(exported = false)
+    <S extends MemberRole> Iterable<S> save(Iterable<S> iterable);
+
+    @Override
+    @RestResource(exported = false)
+    void delete(Long aLong);
+
+    @Override
+    @RestResource(exported = false)
+    void delete(Iterable<? extends MemberRole> iterable);
+
+    @Override
+    @RestResource(exported = false)
     void delete(MemberRole entity);
 
     @Override
