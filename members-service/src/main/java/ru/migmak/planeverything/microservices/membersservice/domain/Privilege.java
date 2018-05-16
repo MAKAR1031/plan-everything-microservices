@@ -1,6 +1,5 @@
 package ru.migmak.planeverything.microservices.membersservice.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
