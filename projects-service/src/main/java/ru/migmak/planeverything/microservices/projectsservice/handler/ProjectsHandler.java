@@ -20,7 +20,6 @@ import java.util.Date;
 public class ProjectsHandler {
 
     private static final String DEFAULT_ROLE = "PROJECT_TASK_MANAGER";
-    private static final String ACCOUNT_PROJECTION = "full";
 
     private final AccountsClient accountsClient;
     private final MembersClient membersClient;
@@ -30,14 +29,14 @@ public class ProjectsHandler {
     public void handleBeforeCreate(Project project) {
         project.setCreateDate(new Date());
         project.setOpened(true);
-        Account account = accountsClient.findMe(ACCOUNT_PROJECTION);
+        Account account = accountsClient.findMe();
         project.setAuthorId(account.getId());
     }
 
     @HandleAfterCreate
     @Transactional
     public void handleAfterCreate(Project project) {
-        Account account = accountsClient.findMe(ACCOUNT_PROJECTION);
+        Account account = accountsClient.findMe();
         ProjectMember member = new ProjectMember();
         member.setAccountId(account.getId());
         member.setProjectId(project.getId());
