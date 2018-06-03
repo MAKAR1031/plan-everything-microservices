@@ -12,7 +12,7 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
         http.formLogin().disable()
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/**/oauth/token")
+                .antMatchers("/**/oauth/token", "/**/accounts/register")
                 .permitAll()
             .and()
             .authorizeRequests()

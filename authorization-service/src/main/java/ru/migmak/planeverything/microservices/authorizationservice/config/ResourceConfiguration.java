@@ -11,7 +11,7 @@ public class ResourceConfiguration extends ResourceServerConfigurerAdapter {
         // @formatter:off
         http
             .authorizeRequests()
-                .antMatchers("/users/register")
+                .antMatchers("/accounts/register")
                 .permitAll()
             .and()
             .authorizeRequests()
