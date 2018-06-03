@@ -19,7 +19,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class ProjectsHandler {
 
-    private static final String DEFAULT_ROLE = "PROJECT_TASK_MANAGER";
+    private static final String DEFAULT_ROLE = "PROJECT_MANAGER";
 
     private final AccountsClient accountsClient;
     private final MembersClient membersClient;
